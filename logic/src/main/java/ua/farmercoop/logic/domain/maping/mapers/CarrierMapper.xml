@@ -1,0 +1,18 @@
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ua.farmercoop.logic.domain.mapping.mappers.CarrierMapper">
+    
+    <resultMap id="carrierRM" type="Carrier">
+        <id property="id" column="carriersId"/>
+        <result property="description" column="description" />
+        <result property="name" column="name" />
+	</resultMap>
+    
+    <select id="getCarrierById" 
+		parameterType="java.lang.Integer" 
+		resultMap="carrierRM"
+	>
+        select * from carriers where idC = #{id}
+    </select>    
+        
+</mapper>

@@ -1,0 +1,26 @@
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ua.farmercoop.logic.domain.mapping.mappers.UserMapper">
+    
+    <resultMap id="userRM" type="User">
+        <result property="id" column="idU"/>
+        <result property="name" column="firstname"/>
+	</resultMap>
+    
+    <select id="getUserById" 
+		parameterType="java.lang.Integer" 
+		resultMap="userRM"
+	>
+        SELECT U.*
+		FROM
+		 users U
+		WHERE
+		 idU = #{id}
+    </select>
+    
+    <select id="getUsers"
+    	resultMap="userRM"
+    >  
+        select * from users
+    </select>
+    
+</mapper>

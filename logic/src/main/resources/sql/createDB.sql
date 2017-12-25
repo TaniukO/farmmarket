@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS users
     firstname VARCHAR(45) NOT NULL,
     sourname VARCHAR(45),
     dateBirth DATE,
-    dateReg DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    dateReg DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
     counryId INT NOT NULL,
     postId INT,
     adress VARCHAR(45),
@@ -18,18 +18,19 @@ CREATE TABLE IF NOT EXISTS users
 
 CREATE TABLE IF NOT EXISTS autent(
 idU INT NOT NULL,
-passw VARCHAR(45) NOT NULL
+passw VARCHAR(45) NOT NULL,
+FOREIGN KEY (idU) REFERENCES users(idU) ON DELETE CASCADE,
 );
 
 CREATE TABLE IF NOT EXISTS products (
     idP INT NOT NULL AUTO_INCREMENT,
-    name VARCHAR(45) NOT NULL,
+    nameP VARCHAR(45) NOT NULL,
     description VARCHAR(45) NOT NULL,
     price DECIMAL(10) NOT NULL,
-    mainImage VARCHAR(45),
+    mainImg VARCHAR(45),
     category VARCHAR(45) NOT NULL,
-    depository INT NOT NULL,
-    avaibility INT NOT NULL,
+    depot INT NOT NULL,
+    quantity INT NOT NULL,
     PRIMARY KEY (idP),
     TYPE=INNODB
 );
@@ -43,7 +44,7 @@ CREATE TABLE IF NOT EXISTS productsImages (
 );
 
 CREATE TABLE IF NOT EXISTS productFeatures (
-    idF INT NOT NULL,   
+    idF INT NOT NULL AUTO_INCREMENT,   
     idP INT NOT NULL,
     featName VARCHAR(45) NOT NULL,
     valueF VARCHAR(45) NOT NULL,
@@ -55,15 +56,18 @@ CREATE TABLE IF NOT EXISTS productFeatures (
  CREATE TABLE IF NOT EXISTS orders (
     idO INT NOT NULL AUTO_INCREMENT,
     userId INT NOT NULL,
-    sumPrice DECIMAL NOT NULL,
-    postId INT NOT NULL,        
-    moveToAdress VARCHAR(255) NOT NULL,
-    phone VARCHAR(13) NOT NULL,
-    carriersId INT ,
+    sumPrice DECIMAL NOT NULL DEFAULT 0,
+    postId INT,        
+    moveToAdress VARCHAR(255),
+    phone VARCHAR(13),
+    carriersId INT DEFAULT 0,
     note VARCHAR(45),
-    dateOrder DATETIME DEFAULT CURRENT_TIMESTAMP,
-    carrierId INT NOT NULL,
-    PRIMARY KEY (idO),TYPE=INNODB
+    dateOrder DATE NOT NULL,
+    carrierId INT,
+    PRIMARY KEY (idO),TYPE=INNODB,
+    FOREIGN KEY (carriersId) REFERENCES carriers(idC) ON DELETE SET NULL,
+    FOREIGN KEY (userId) REFERENCES users(idU) ON DELETE CASCADE
+    
 );
 
 CREATE TABLE IF NOT EXISTS productsOfOrders (

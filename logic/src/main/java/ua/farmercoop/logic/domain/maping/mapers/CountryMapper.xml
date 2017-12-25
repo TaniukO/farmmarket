@@ -1,0 +1,29 @@
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ua.farmercoop.logic.domain.mapping.mappers.CountryMapper">
+    <resultMap id="countryRM" type="Country">
+        <id property="id" column="country_id"/>
+        <result property="leterCode" column="code" />
+        <association property="continent" 
+        	javaType="Continent"
+        	resultMap="continentRM"
+        	columnPrefix="continents_"
+        />
+        
+	</resultMap>
+	
+	<resultMap type="Continent" id="continentRM" />
+    
+    <select id="getCountry"
+		resultMap="countryRM"
+	>
+        select
+         A.*,B.code as continents_code,
+         B.name as continents_name
+        from 
+         countries A join continents B on A.code = B.code
+        where
+         C.country_id = #{id}
+    </select>    
+        
+</mapper>

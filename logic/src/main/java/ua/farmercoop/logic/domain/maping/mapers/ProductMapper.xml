@@ -1,0 +1,83 @@
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ua.farmercoop.logic.domain.mapping.mappers.ProductMapper">
+
+    <resultMap id="productImagesRM" type="String">
+        <result property="url" column="imUrl"/>
+    </resultMap>
+    
+    <resultMap id="productFeaturesRM" type="ProductsFeatures">
+        <id property="id" column="idF"/>
+        <result property="productId" column="idP" />
+        <result property="featName" column="name"/>
+        <result property="valueF" column="value" />
+    </resultMap>
+    
+    <!-- =========== productRM ============== -->
+    
+    <resultMap id="productRM" type="Product">
+        <id property="id" column="idP"/>
+        <result property="name" column="nameP"/>
+        <result property="description" column="description"/>
+        <result property="price" column="price"/>
+        <result property="mainImg" column="mainImg"/>
+        <result property="category" column="category"/>
+        <result property="depository" column="depository"/>
+        <result property="quantity" column="quantity"/>
+        <collection  
+			property="images"
+			javaType="List"  
+	       	ofType="String"
+	       	resultMap="productImagesRM"
+	    	columnPrefix="PI_"
+	    	foreignColumn="idP"	       	
+	    />
+	    <collection
+	    	columnPrefix="PF_"
+		    property="features"
+		    ofType="ProductsFeatures" 
+		    resultMap="productFeaturesRM"
+		    foreignColumn="idP"
+		/>
+		
+		
+	</resultMap>
+	
+    <!-- ===========SELECTS============== -->
+    
+    <select id="getProductById" 
+		parameterType="java.lang.Integer" 
+		resultMap="ProductRM"
+	>
+        SELECT 
+	        P.*,
+	        F.featName as PF_featName,
+	        F.valueF as PF_valueF,
+	        I.imUrl as PI_imUrl
+        FROM  
+	        products P LEFT JOIN ProductImages I ON P.idP = I.idI
+    	    LEFT JOIN productFeatures F ON P.idP = F.idF
+        WHERE 
+        	P.idP = #{id}
+    </select>
+    
+    
+    <select id="getIncompleteProducts"
+		resultMap="ProductRM"
+    >
+		SELECT 
+	        P.*
+        FROM  
+        	products P
+    </select>
+    
+     
+
+    <insert id="insertProduct" parameterType="Product" useGeneratedKeys="true" keyProperty="id"  keyColumn="idP"> 
+        INSERT INTO products(nameP, description, price, mainImg, category, depot, quantity)
+        VALUE (#{name}, #{description}, #{price}, #{mainImg}, #{category}, #{depot}, #{quantity} )
+        <selectKey keyProperty="id" resultType="long" order="AFTER">
+            SELECT LAST_INSERT_ID();
+        </selectKey>
+    </insert>
+
+</mapper>

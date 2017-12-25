@@ -1,0 +1,48 @@
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ua.farmercoop.logic.domain.mapping.mappers.OrderMapper">
+    
+    <resultMap id="orderRM" type="Order">
+        <result property="id" column="idO"/>
+        <association property="carrier" javaType="Carrier" resultMap="carrierRM" columnPrefix="C_"/>
+		<collection property="products"  javaType="ArrayList" column="idO" ofType="Product" select="selectProductsForOrders"/>
+	</resultMap>
+
+    <select id="getOrderById" 
+		parameterType="java.lang.Integer" 
+		resultMap="orderRM"
+	>
+        SELECT
+         O.*, 
+         C.name as C_name, 
+         C.description as C_description, 
+         C.idC as C_idC
+         
+        FROM
+         orders O LEFT JOIN carriers C ON O.carriersId = C.idC
+		WHERE
+		 O.idO = #{id}
+    </select>    
+        
+        
+
+        
+    <select id="selectProductsForOrders"
+    	parameterType="java.lang.Integer"
+    	resultMap="productRM"
+    >
+    	SELECT 
+	        P.*,
+	        F.featName as PF_featName,
+	        F.valueF as PF_valueF,
+	        I.imUrl as PI_imUrl
+        FROM  
+    	    productsOfOrders PofO 
+    	    	LEFT JOIN products P ON PofO.idP = P.idP
+	        	LEFT JOIN ProductImages I ON P.idP = I.idI
+    	    	LEFT JOIN productFeatures F ON P.idP = F.idF
+        WHERE 
+        	PofO.idO = #{id}
+
+    	 
+    </select>
+</mapper>
