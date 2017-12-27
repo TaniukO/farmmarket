@@ -1,4 +1,5 @@
-package ua.saniok.web.shop.model.entity;
+package ua.farmercoop.logic.domain;
+
 
 import java.util.List;
 
@@ -72,6 +73,12 @@ public class Product{
 	}
 	public void setFeatures(List<ProductsFeatures> features) {
 		this.features = features;
+	}
+	public int getDepot() {
+		return depot;
+	}
+	public void setDepot(int depot) {
+		this.depot = depot;
 	}
 
 

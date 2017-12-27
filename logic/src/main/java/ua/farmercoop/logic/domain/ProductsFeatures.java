@@ -1,4 +1,5 @@
-package ua.saniok.web.shop.model.entity;
+package ua.farmercoop.logic.domain;
+
 
 public class ProductsFeatures {
 	private int id;

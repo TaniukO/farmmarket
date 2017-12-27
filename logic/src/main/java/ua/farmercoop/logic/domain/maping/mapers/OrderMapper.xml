@@ -4,7 +4,7 @@
     <resultMap id="orderRM" type="Order">
         <result property="id" column="idO"/>
         <association property="carrier" javaType="Carrier" resultMap="carrierRM" columnPrefix="C_"/>
-		<collection property="products"  javaType="ArrayList" column="idO" ofType="Product" select="selectProductsForOrders"/>
+		<collection property="products"  javaType="ArrayList" column="idO" ofType="Product" select="selectProductsForOrders" fetchType="lazy"/>
 	</resultMap>
 
     <select id="getOrderById" 
@@ -45,4 +45,27 @@
 
     	 
     </select>
+    
+	  <update id="updateOrder" parameterType="Order">
+	      UPDATE orders 
+	      SET
+	      	userId = #{userId}, 
+	      	dateOrder = #{dateOrder},
+	      	sumPrice = #{sumPrice},
+	      	postId = #{postId},
+	      	moveToAdress = #{moveToAdress},
+	      	phone = #{phone},
+	      	note = #{note},
+	      	carrierId = #{carrier}
+	      WHERE idO = #{idO}
+	  </update>
+  
+    <insert id="insertOrder" parameterType="Order" useGeneratedKeys="true" keyProperty="id"  keyColumn="idO"> 
+        INSERT INTO orders(userId, dateOrder,sumPrice,postId,moveToAdress,phone,note,carrierId)
+        VALUE (#{userId}, #{dateOrder})
+        <selectKey keyProperty="id" resultType="long" order="AFTER">
+            SELECT LAST_INSERT_ID();
+        </selectKey>
+    </insert>
+
 </mapper>

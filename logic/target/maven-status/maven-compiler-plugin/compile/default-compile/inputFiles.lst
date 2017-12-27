@@ -1,1 +1,15 @@
-/home/saniok/eclipse-workspace/farmmarket/logic/src/main/java/ua/farmercoop/logic/NewSessionBean.java
+/home/saniok/eclipse-workspace/farmmarket/logic/src/main/java/ua/farmercoop/logic/domain/Order.java
+/home/saniok/eclipse-workspace/farmmarket/logic/src/main/java/ua/farmercoop/logic/domain/maping/mapers/UserMapper.java
+/home/saniok/eclipse-workspace/farmmarket/logic/src/main/java/ua/farmercoop/logic/domain/Carrier.java
+/home/saniok/eclipse-workspace/farmmarket/logic/src/main/java/ua/farmercoop/logic/domain/maping/mapers/ProductMapper.java
+/home/saniok/eclipse-workspace/farmmarket/logic/src/main/java/ua/farmercoop/logic/domain/Continent.java
+/home/saniok/eclipse-workspace/farmmarket/logic/src/main/java/ua/farmercoop/logic/domain/Product.java
+/home/saniok/eclipse-workspace/farmmarket/logic/src/main/java/ua/farmercoop/logic/domain/Country.java
+/home/saniok/eclipse-workspace/farmmarket/logic/src/main/java/ua/farmercoop/logic/domain/maping/mapers/CarrierMapper.java
+/home/saniok/eclipse-workspace/farmmarket/logic/src/main/java/ua/farmercoop/logic/ejb/ProductManagerBeen.java
+/home/saniok/eclipse-workspace/farmmarket/logic/src/main/java/ua/farmercoop/logic/domain/maping/mapers/CountryMapper.java
+/home/saniok/eclipse-workspace/farmmarket/logic/src/main/java/ua/farmercoop/logic/domain/ProductsFeatures.java
+/home/saniok/eclipse-workspace/farmmarket/logic/src/main/java/ua/farmercoop/logic/domain/User.java
+/home/saniok/eclipse-workspace/farmmarket/logic/src/main/java/ua/farmercoop/logic/domain/maping/mapers/OrderMapper.java
+/home/saniok/eclipse-workspace/farmmarket/logic/src/main/java/ua/farmercoop/logic/domain/maping/SqlSessionFactoryProducer.java
+/home/saniok/eclipse-workspace/farmmarket/logic/src/main/java/ua/farmercoop/logic/ejb/OrdersManagerBeen.java

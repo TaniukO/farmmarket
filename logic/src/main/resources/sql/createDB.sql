@@ -60,10 +60,9 @@ CREATE TABLE IF NOT EXISTS productFeatures (
     postId INT,        
     moveToAdress VARCHAR(255),
     phone VARCHAR(13),
-    carriersId INT DEFAULT 0,
+    carrierId INT DEFAULT 0,
     note VARCHAR(45),
     dateOrder DATE NOT NULL,
-    carrierId INT,
     PRIMARY KEY (idO),TYPE=INNODB,
     FOREIGN KEY (carriersId) REFERENCES carriers(idC) ON DELETE SET NULL,
     FOREIGN KEY (userId) REFERENCES users(idU) ON DELETE CASCADE

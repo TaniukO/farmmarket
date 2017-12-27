@@ -14,5 +14,22 @@
 	>
         select * from carriers where idC = #{id}
     </select>    
+    
+	  <update id="updateCarrier" parameterType="Carrier">
+	      UPDATE carriers 
+	      SET
+	      	name = #{name},
+	      	description = #{description}
+	      WHERE idC = #{idC}
+	  </update>
+  
+    
+    <insert id="insertCarrier" parameterType="Carrier" useGeneratedKeys="true" keyProperty="id"  keyColumn="idC"> 
+        INSERT INTO carriers(name,description)
+        VALUE (#{name}, #{description})
+        <selectKey keyProperty="id" resultType="long" order="AFTER">
+            SELECT LAST_INSERT_ID();
+        </selectKey>
+    </insert>
         
 </mapper>

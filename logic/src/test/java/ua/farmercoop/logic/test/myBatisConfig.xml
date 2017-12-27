@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<properties resource="SqlMapConfig.properties"/> 
+
+ <typeAliases>
+	 <typeAlias alias="Carrier"
+		 type="ua.farmercoop.logic.domain.Carrier"/>
+	 <typeAlias alias="Order" 
+	 	type="ua.farmercoop.logic.domain.Order"/>
+	 <typeAlias alias="Product" 
+	 	type="ua.farmercoop.logic.domain.Product"/>
+ 	<typeAlias alias="ProductsFeatures" 
+	 	type="ua.farmercoop.logic.domain.ProductsFeatures"/>
+ 	<typeAlias alias="Country" 
+	 	type="ua.farmercoop.logic.domain.Country"/>
+	<typeAlias alias="Continent" 
+	 	type="ua.farmercoop.logic.domain.Continent"/>
+ 	<typeAlias alias="User" 
+	 	type="ua.farmercoop.logic.domain.User"/>
+</typeAliases>
+  
+ <environments default="development">
+	 <environment id="development">
+		 <transactionManager type="MANAGED"/>
+		 <dataSource type="POOLED">
+			 <property name="driver" value="com.mysql.jdbc.Driver"/>
+			 <property name="url" value="${url}"/>
+			 <property name="username" value="${username}"/>
+			 <property name="password" value="${password}"/>
+		 </dataSource>
+	 </environment>
+ </environments>
+ 
+ <mappers>
+     <mapper resource="ua/farmercoop/logic/mapper/UserMapper.xml"/>
+     <mapper resource="ua/farmercoop/logic/mapper/ProductMapper.xml"/>
+     <mapper resource="ua/farmercoop/logic/mapper/OrderMapper.xml"/>
+     <mapper resource="ua/farmercoop/logic/mapper/CarrierMapper.xml"/>
+     <mapper resource="ua/farmercoop/logic/mapper/CountryMapper.xml"/>
+ </mappers>
+
+</configuration>

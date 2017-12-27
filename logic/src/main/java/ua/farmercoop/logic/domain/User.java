@@ -1,4 +1,5 @@
-package ua.saniok.web.shop.model.entity;
+package ua.farmercoop.logic.domain;
+
 
 /**
  * Created by sAnCho on 17.08.2016.
@@ -7,7 +8,7 @@ package ua.saniok.web.shop.model.entity;
 
 public class User{
 
-    private int id;
+    private long id;
     private String login;
     private String email;
     private String name;
@@ -18,7 +19,7 @@ public class User{
     private int postId;		
     private String adress;
     
-    public int getId() {
+    public long getId() {
         return id;
     }
     public String getLogin() {

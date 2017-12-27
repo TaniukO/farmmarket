@@ -1,26 +1,38 @@
-package ua.saniok.web.shop.model.entity;
+package ua.farmercoop.logic.domain;
+
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 public class Order {
-	private int id;
-	private int userId;
+	private long id;
+	private long userId;
 	private BigDecimal sumPrice;
 	private int postId;
 	private String moveToAdress;
-	private int phone;
+	private String phone;
 	private String note;
 	private Date dateOrder;
 	private List<Product> products;
 	private Carrier carrier;
-	public int getId() {
+	
+	@Override
+	public String toString() {
+		final int maxLen = 3;
+		return "Order [id=" + id + ", userId=" + userId + ", sumPrice=" + sumPrice + ", postId=" + postId
+				+ ", moveToAdress=" + moveToAdress + ", phone=" + phone + ", note=" + note + ", dateOrder=" + dateOrder
+				+ ", products=" + (products != null ? products.subList(0, Math.min(products.size(), maxLen)) : null)
+				+ ", carrier=" + carrier + "]";
+	}
+	
+	public long getId() {
 		return id;
 	}
-	public int getUserId() {
+	public long getUserId() {
 		return userId;
 	}
-	public BigDecimal getCost() {
+	public BigDecimal getSumPrice() {
 		return sumPrice;
 	}
 	public int getPostId() {
@@ -29,7 +41,7 @@ public class Order {
 	public String getMoveToAdress() {
 		return moveToAdress;
 	}
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 	
@@ -45,13 +57,11 @@ public class Order {
 	public Carrier getCarriers() {
 		return carrier;
 	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public void setUserId(int userId) {
+	
+	public void setUserId(long userId) {
 		this.userId = userId;
 	}
-	public void setCost(BigDecimal sumPrice) {
+	public void setSumPrice(BigDecimal sumPrice) {
 		this.sumPrice = sumPrice;
 	}
 	public void setPostId(int postId) {
@@ -60,7 +70,7 @@ public class Order {
 	public void setMoveToAdress(String moveToAdress) {
 		this.moveToAdress = moveToAdress;
 	}
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 	
@@ -72,7 +82,7 @@ public class Order {
 	}
 	public void setProducts(List<Product> products) {
 		this.products = products;
-	}
+	}	
 	public void setCarriers(Carrier carrier) {
 		this.carrier = carrier;
 	}
