@@ -1,19 +1,19 @@
 -------------------------------------------------------------------------------
 Test set: ua.farmercoop.logic.test.OrderBeenTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 0.154 sec <<< FAILURE! - in ua.farmercoop.logic.test.OrderBeenTest
-testUpdateOrder(ua.farmercoop.logic.test.OrderBeenTest)  Time elapsed: 0.02 sec  <<< ERROR!
+Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 0.221 sec <<< FAILURE! - in ua.farmercoop.logic.test.OrderBeenTest
+testUpdateOrder(ua.farmercoop.logic.test.OrderBeenTest)  Time elapsed: 0.057 sec  <<< ERROR!
 java.lang.ExceptionInInitializerError: null
 	at ua.farmercoop.logic.test.MyBatisUtil.<clinit>(MyBatisUtil.java:22)
 	at ua.farmercoop.logic.test.service.OrderService.getOrderById(OrderService.java:30)
 	at ua.farmercoop.logic.test.OrderBeenTest.testUpdateOrder(OrderBeenTest.java:79)
 
-testGetOrderById(ua.farmercoop.logic.test.OrderBeenTest)  Time elapsed: 0 sec  <<< ERROR!
+testGetOrderById(ua.farmercoop.logic.test.OrderBeenTest)  Time elapsed: 0.002 sec  <<< ERROR!
 java.lang.NoClassDefFoundError: Could not initialize class ua.farmercoop.logic.test.MyBatisUtil
 	at ua.farmercoop.logic.test.service.OrderService.getOrderById(OrderService.java:30)
 	at ua.farmercoop.logic.test.OrderBeenTest.testGetOrderById(OrderBeenTest.java:91)
 
-testGetAllOrders(ua.farmercoop.logic.test.OrderBeenTest)  Time elapsed: 0.005 sec  <<< ERROR!
+testGetAllOrders(ua.farmercoop.logic.test.OrderBeenTest)  Time elapsed: 0.001 sec  <<< ERROR!
 java.lang.NoClassDefFoundError: Could not initialize class ua.farmercoop.logic.test.MyBatisUtil
 	at ua.farmercoop.logic.test.service.OrderService.getAllOrders(OrderService.java:43)
 	at ua.farmercoop.logic.test.OrderBeenTest.testGetAllOrders(OrderBeenTest.java:98)
@@ -23,7 +23,7 @@ java.lang.NoClassDefFoundError: Could not initialize class ua.farmercoop.logic.t
 	at ua.farmercoop.logic.test.service.OrderService.getOrderById(OrderService.java:30)
 	at ua.farmercoop.logic.test.OrderBeenTest.testDeleteOrder(OrderBeenTest.java:108)
 
-testInsertOrder(ua.farmercoop.logic.test.OrderBeenTest)  Time elapsed: 0.003 sec  <<< ERROR!
+testInsertOrder(ua.farmercoop.logic.test.OrderBeenTest)  Time elapsed: 0.021 sec  <<< ERROR!
 java.lang.NoClassDefFoundError: Could not initialize class ua.farmercoop.logic.test.MyBatisUtil
 	at ua.farmercoop.logic.test.service.CarrierService.insertCarrier(CarrierService.java:16)
 	at ua.farmercoop.logic.test.OrderBeenTest.testInsertOrder(OrderBeenTest.java:59)

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ua.farmercoop.logic.test.OrderBeenTest" time="0.029" tests="5" errors="5" skipped="0" failures="0">
+<testsuite name="ua.farmercoop.logic.test.OrderBeenTest" time="0.082" tests="5" errors="5" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/opt/java/jdk1.8.0_144/jre/lib/amd64"/>
@@ -58,20 +58,20 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="testUpdateOrder" classname="ua.farmercoop.logic.test.OrderBeenTest" time="0.02">
+  <testcase name="testUpdateOrder" classname="ua.farmercoop.logic.test.OrderBeenTest" time="0.057">
     <error type="java.lang.ExceptionInInitializerError:"><![CDATA[java.lang.ExceptionInInitializerError: null
 	at ua.farmercoop.logic.test.MyBatisUtil.<clinit>(MyBatisUtil.java:22)
 	at ua.farmercoop.logic.test.service.OrderService.getOrderById(OrderService.java:30)
 	at ua.farmercoop.logic.test.OrderBeenTest.testUpdateOrder(OrderBeenTest.java:79)
 ]]></error>
   </testcase>
-  <testcase name="testGetOrderById" classname="ua.farmercoop.logic.test.OrderBeenTest" time="0">
+  <testcase name="testGetOrderById" classname="ua.farmercoop.logic.test.OrderBeenTest" time="0.002">
     <error message="Could not initialize class ua.farmercoop.logic.test.MyBatisUtil" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: Could not initialize class ua.farmercoop.logic.test.MyBatisUtil
 	at ua.farmercoop.logic.test.service.OrderService.getOrderById(OrderService.java:30)
 	at ua.farmercoop.logic.test.OrderBeenTest.testGetOrderById(OrderBeenTest.java:91)
 </error>
   </testcase>
-  <testcase name="testGetAllOrders" classname="ua.farmercoop.logic.test.OrderBeenTest" time="0.005">
+  <testcase name="testGetAllOrders" classname="ua.farmercoop.logic.test.OrderBeenTest" time="0.001">
     <error message="Could not initialize class ua.farmercoop.logic.test.MyBatisUtil" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: Could not initialize class ua.farmercoop.logic.test.MyBatisUtil
 	at ua.farmercoop.logic.test.service.OrderService.getAllOrders(OrderService.java:43)
 	at ua.farmercoop.logic.test.OrderBeenTest.testGetAllOrders(OrderBeenTest.java:98)
@@ -83,7 +83,7 @@
 	at ua.farmercoop.logic.test.OrderBeenTest.testDeleteOrder(OrderBeenTest.java:108)
 </error>
   </testcase>
-  <testcase name="testInsertOrder" classname="ua.farmercoop.logic.test.OrderBeenTest" time="0.003">
+  <testcase name="testInsertOrder" classname="ua.farmercoop.logic.test.OrderBeenTest" time="0.021">
     <error message="Could not initialize class ua.farmercoop.logic.test.MyBatisUtil" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: Could not initialize class ua.farmercoop.logic.test.MyBatisUtil
 	at ua.farmercoop.logic.test.service.CarrierService.insertCarrier(CarrierService.java:16)
 	at ua.farmercoop.logic.test.OrderBeenTest.testInsertOrder(OrderBeenTest.java:59)
