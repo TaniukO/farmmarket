@@ -55,7 +55,7 @@ public void after() {
 @Test
 public void testInsertOrder(){
     Order order=new Order();
-    Carrier carrier=new Carrier("name","deckription");
+    Carrier carrier=new Carrier("mybatis","deckription");
     cs.insertCarrier(carrier);
     order.setUserId(1L);
     order.setDateOrder( new Date());

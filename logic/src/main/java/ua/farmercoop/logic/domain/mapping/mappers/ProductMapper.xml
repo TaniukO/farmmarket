@@ -2,7 +2,7 @@
 <mapper namespace="ua.farmercoop.logic.domain.mapping.mappers.ProductMapper">
 
     <resultMap id="productImagesRM" type="String">
-        <result property="url" column="imUrl"/>
+        <result column="imUrl"/>
     </resultMap>
     
     <resultMap id="productFeaturesRM" type="ProductsFeatures">
@@ -75,7 +75,7 @@
     <insert id="insertProduct" parameterType="Product" useGeneratedKeys="true" keyProperty="id"  keyColumn="idP"> 
         INSERT INTO products(nameP, description, price, mainImg, category, depot, quantity)
         VALUE (#{name}, #{description}, #{price}, #{mainImg}, #{category}, #{depot}, #{quantity} )
-        <selectKey keyProperty="id" resultType="long" order="AFTER">
+        <selectKey keyProperty="id" resultType="Long" order="AFTER">
             SELECT LAST_INSERT_ID();
         </selectKey>
     </insert>

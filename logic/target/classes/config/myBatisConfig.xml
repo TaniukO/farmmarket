@@ -2,8 +2,7 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-<properties resource="resource/SqlMapConfig.properties"/> 
-
+<!--   <properties resource="config/SqlMapConfig.properties"/> -->
  <typeAliases>
      <typeAlias alias="Carrier"
 	 type="ua.farmercoop.logic.domain.Carrier"/>
@@ -26,19 +25,19 @@
 	 <transactionManager type="MANAGED"/>
 	 <dataSource type="POOLED">
 	     <property name="driver" value="com.mysql.jdbc.Driver"/>
-	     <property name="url" value="${url}"/>
-	     <property name="username" value="${username}"/>
-	     <property name="password" value="${password}"/>
+	     <property name="url" value="jdbc:mysql://localhost:3306/Saniok_SiteShop"/>
+	     <property name="username" value="ejb"/>
+	     <property name="password" value="passwords"/>
 	 </dataSource>
      </environment>
  </environments>
  
  <mappers>
-     <mapper resource="ua/farmercoop/logic/domain/maping/mappers/UserMapper.xml"/>
-     <mapper resource="ua/farmercoop/logic/domain/maping/mappers/ProductMapper.xml"/>
-     <mapper resource="ua/farmercoop/logic/domain/maping/mappers/OrderMapper.xml"/>
-     <mapper resource="ua/farmercoop/logic/domain/maping/mappers/CarrierMapper.xml"/>
-     <mapper resource="ua/farmercoop/logic/domain/maping/mappers/CountryMapper.xml"/>
+     <mapper resource="ua/farmercoop/logic/domain/mapping/mappers/UserMapper.xml"/>
+     <mapper resource="ua/farmercoop/logic/domain/mapping/mappers/ProductMapper.xml"/>
+     <mapper resource="ua/farmercoop/logic/domain/mapping/mappers/OrderMapper.xml"/>
+     <mapper resource="ua/farmercoop/logic/domain/mapping/mappers/CarrierMapper.xml"/>
+     <mapper resource="ua/farmercoop/logic/domain/mapping/mappers/CountryMapper.xml"/>
  </mappers>
 
 </configuration>

@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import ua.farmercoop.logic.domain.Order;
-import ua.farmercoop.logic.domain.maping.mapers.OrderMapper;
+import ua.farmercoop.logic.domain.mapping.mappers.OrderMapper;
 import ua.farmercoop.logic.test.MyBatisUtil;
 
 public class OrderService
@@ -16,8 +16,8 @@ public class OrderService
 		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
 		try
 		{
-			OrderMapper orderMapper = sqlSession.getMapper(OrderMapper.class);
-			orderMapper.insertOrder(order);
+			String orderMapper = "OrderMapper.insertOrder";
+			sqlSession.selectOne(orderMapper,order);
 			sqlSession.commit();
 		} finally
 		{
@@ -30,8 +30,7 @@ public class OrderService
 		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
 		try
 		{
-			OrderMapper orderMapper = sqlSession.getMapper(OrderMapper.class);
-			return orderMapper.getOrderById(orderId);
+			return sqlSession.selectOne("OrderMapper.getOrderById",orderId);
 		} finally
 		{
 			sqlSession.close();
@@ -43,8 +42,7 @@ public class OrderService
 		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
 		try
 		{
-			OrderMapper orderMapper = sqlSession.getMapper(OrderMapper.class);
-			return orderMapper.getAllOrders();
+			return sqlSession.selectOne("OrderMapper.getAllOrder");
 		} finally
 		{
 			sqlSession.close();

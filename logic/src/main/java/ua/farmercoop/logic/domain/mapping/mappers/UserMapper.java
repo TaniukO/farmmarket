@@ -1,4 +1,4 @@
-package ua.farmercoop.logic.domain.maping.mapers;
+package ua.farmercoop.logic.domain.mapping.mappers;
 
 import org.mybatis.cdi.Mapper;
 

@@ -1,5 +1,6 @@
 package ua.farmercoop.logic.test;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.Reader;
 import org.apache.ibatis.io.Resources;
@@ -14,12 +15,17 @@ public class MyBatisUtil
  
     static
     {
-          Reader reader = null;
+
+    	  Reader reader = null;
           try {
-             reader = Resources.getResourceAsReader("ua/farmercoop/logic/domain/maping/myBatisConfig.xml");
-          } 
+        	  String resource="config/myBatisConfig.xml";
+        	  
+              reader = Resources.getResourceAsReader(resource);
+          }
+          
           catch (IOException e) {
-            throw new RuntimeException(e.getMessage());
+          System.out.println("resourse not found \n"+e.toString());
+        	  throw new RuntimeException(e.getMessage());
           }
           factory = new SqlSessionFactoryBuilder().build(reader);
     }

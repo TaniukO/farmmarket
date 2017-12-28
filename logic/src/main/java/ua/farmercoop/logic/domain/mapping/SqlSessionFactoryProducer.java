@@ -1,4 +1,4 @@
-package ua.farmercoop.logic.domain.maping;
+package ua.farmercoop.logic.domain.mapping;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -20,9 +20,9 @@ import org.mybatis.cdi.SessionFactoryProvider;
 
 public class SqlSessionFactoryProducer {
 
-  @Produces
-  @ApplicationScoped
-  @SessionFactoryProvider 	
+//  @Produces
+  //@ApplicationScoped
+  //@SessionFactoryProvider 	
   public SqlSessionFactory produceFactory() {
     String resource = "ua/farmercoop/logic/domain/maping/myBatisConfig.xml";
     

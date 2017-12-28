@@ -5,7 +5,7 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import ua.farmercoop.logic.domain.Product;
-import ua.farmercoop.logic.domain.maping.mapers.ProductMapper;
+import ua.farmercoop.logic.domain.mapping.mappers.ProductMapper;
 
 @Stateless
 @LocalBean

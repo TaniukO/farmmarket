@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import ua.farmercoop.logic.domain.Carrier;
-import ua.farmercoop.logic.domain.maping.mapers.CarrierMapper;
+import ua.farmercoop.logic.domain.mapping.mappers.CarrierMapper;
 import ua.farmercoop.logic.test.MyBatisUtil;
 
 public class CarrierService

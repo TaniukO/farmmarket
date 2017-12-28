@@ -7,7 +7,7 @@ import javax.inject.Inject;
 
 import ua.farmercoop.logic.domain.Order;
 import ua.farmercoop.logic.domain.User;
-import ua.farmercoop.logic.domain.maping.mapers.OrderMapper;
+import ua.farmercoop.logic.domain.mapping.mappers.OrderMapper;
 
 @Stateless
 @LocalBean

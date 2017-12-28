@@ -3,24 +3,30 @@
 <mapper namespace="ua.farmercoop.logic.domain.mapping.mappers.CarrierMapper">
     
     <resultMap id="carrierRM" type="Carrier">
-        <id property="id" column="carriersId"/>
+        <id property="id" column="carrierId"/>
         <result property="description" column="description" />
         <result property="name" column="name" />
 	</resultMap>
     
     <select id="getCarrierById" 
-		parameterType="java.lang.Integer" 
+		parameterType="java.lang.Long" 
 		resultMap="carrierRM"
 	>
         select * from carriers where idC = #{id}
     </select>    
+    
+    <select id="getCarrierById" 
+		resultMap="carrierRM"
+	>
+        select * from carriers
+    </select>
     
 	  <update id="updateCarrier" parameterType="Carrier">
 	      UPDATE carriers 
 	      SET
 	      	name = #{name},
 	      	description = #{description}
-	      WHERE idC = #{idC}
+	      WHERE idC = #{id}
 	  </update>
   
     
